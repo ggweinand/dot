@@ -1,0 +1,7 @@
+#/usr/bin/env bash
+
+# assumes there is a space after comment characters
+
+while IFS= read -r line; do
+	echo "${line#* }"
+done

@@ -1,0 +1,2 @@
+#!/bin/sh
+mkdir -p '~/Pictures/screenshot' && scrot '~/Pictures/screenshot/%Y-%d-%m-%H-%M-%S.png'

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+
+for i in vim tmux; do
+	cd $i && ./setup
+	cd -
+done
