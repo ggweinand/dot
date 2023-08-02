@@ -46,6 +46,13 @@ pathappend \
 	/sbin \
 	/bin
 
+# bash shell options
+shopt -s checkwinsize
+shopt -s expand_aliases
+shopt -s globstar
+shopt -s dotglob
+shopt -s extglob
+
 # history
 export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
@@ -55,11 +62,12 @@ set -o vi
 shopt -s histappend
 
 # prompt
-PS1="\e[0;34m\u\e[1;30m@\e[0;35m\h\e[1;30m:\e[0;32m\w\e[m\$ "
+PS1="\[\e[0;34m\]\u\[\e[1;30m\]@\[\e[0;35m\]\h\[\e[1;30m\]:\[\e[0;32m\]\w\[\e[m\]\$ "
+export TERM=xterm-256color
 
 # keyboard (requires X and graphic Linux desktop)
 _have sexkbmap && test -n "$DISPLAY" &&
-	setxkbmap -option caps:escape &> /dev/null
+	setxkbmap -option caps:escape &> /dev/null &&
 	setxkbmap -layout us,latam -option grp:win_space_toggle
 
 # aliases
@@ -70,3 +78,11 @@ alias scripts='cd $SCRIPTS'
 alias ls='ls -h --color=auto'
 alias diff='diff --color'
 alias more='less'
+
+# python virtualenvwrapper
+_have virtualenv &&
+	export WORKON_HOME=~/.virtualenvs &&
+	VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3' &&
+	source /usr/local/bin/virtualenvwrapper.sh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
