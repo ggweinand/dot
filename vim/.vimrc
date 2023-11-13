@@ -27,7 +27,7 @@ set tabstop=2
 
 "#####################
 
-" disable visual bell
+"false disable visual bell
 set t_vb=
 
 let mapleader=" "
@@ -80,6 +80,7 @@ set viminfo='20,<1000,s1000
 
 " wrap around when searching
 set wrapscan
+
 set nowrap
 
 " command history
@@ -125,6 +126,9 @@ set omnifunc=syntaxcomplete#Complete
 " make Y consistent with D and C
 map Y y$
 
+" disable search highlighting when refreshing screen with <C-l>
+nnoremap <C-L> :nohl<CR><C-L>
+
 " force some files to specific file type
 au bufnewfile, bufRead *.bash* set ft=bash
 au bufnewfile, bufRead *.profile* set ft=sh
@@ -137,13 +141,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set pastetoggle=<F3>
 nmap <leader>2 :set paste<CR>i
 
-" rename tmux window to file name
-if exists('$TMUX')
-	autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
-	autocmd VimLeave * call system("tmux setw automatic-rename")
-endif
-
 " theme
+let g:onedark_hide_endofbuffer=1
 let g:onedark_termcolors=16
 if has("syntax")
 	syntax enable
