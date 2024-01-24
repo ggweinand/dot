@@ -8,4 +8,8 @@ for i in vim tmux; do
 done
 
 mkdir -p ~/.config/nvim
-cp nvim ~/.config/nvim
+cp -r nvim ~/.config/nvim
+
+if [ -d ~/.local/share/konsole ]; then
+	cp onedark.colorscheme ~/.local/share/konsole
+fi
