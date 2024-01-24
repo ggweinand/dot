@@ -73,6 +73,7 @@ _have sexkbmap && test -n "$DISPLAY" &&
 # aliases
 unalias -a
 alias '?'=duck
+alias repo='cd $REPOS'
 alias dot='cd $DOTFILES'
 alias scripts='cd $SCRIPTS'
 alias ls='ls -h --color=auto'
@@ -83,4 +84,4 @@ alias more='less'
 _have virtualenv &&
 	export WORKON_HOME=~/.virtualenvs &&
 	VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3' &&
-	source /usr/local/bin/virtualenvwrapper.sh
+	source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
