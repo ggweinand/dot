@@ -56,8 +56,8 @@ set textwidth=72
 
 set norelativenumber
 
-" default spell checking
-" set spell
+" disable  spell checking
+set nospell
 
 " disable spellcapcheck
 set spc=
