@@ -46,6 +46,9 @@ pathappend \
 	/sbin \
 	/bin
 
+# allow cd to dirs in parent directory
+export CDPATH=..
+
 # bash shell options
 shopt -s checkwinsize
 shopt -s expand_aliases
