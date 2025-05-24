@@ -5,5 +5,10 @@ if [ -z "$(which vim)" -o -z "$(which vimtutor)" ]; then
 fi
 
 ln -sf "$PWD/.vimrc" "$HOME/.vimrc"
-mkdir "$HOME/.vim/" "$HOME/.vim/autoload"
+
+for dir in "$HOME/.vim/" "$HOME/.vim/autoload"; do
+	if [ ! -d $dir ]; then
+		mkdir $dir
+	fi
+done
 ln -sf "$PWD/.vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
