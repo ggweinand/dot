@@ -2,9 +2,9 @@
 
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 
-for i in vim tmux; do
+for i in vim tmux alacritty; do
 	cd $i && ./setup
-	cd -
+	cd - > /dev/null
 done
 
 mkdir -p ~/.config/nvim
